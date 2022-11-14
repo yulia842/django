@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{%block body%}
+ 
+
+<form action="{% url 'books:add' %}" method="POST" enctype=multipart/form-data>
+    <tr>
+    {% csrf_token %}
+    {{ bookform.as_table  }}
+    <input type="submit">
+</tr>
+ </form>
+
+
+{%endblock%}

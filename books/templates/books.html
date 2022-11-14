@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{%block body%}
+  <div class="card-deck">
+      {%for book in book_list%}
+      <div class="card">
+        <div class="card-body">
+          <img style="width:314px;height:314px" src="/static/images/{{ book.image }}" class="card-img-top"  alt="...">
+
+          <h5 class="card-title">{{book.name}}</h5>
+          <p class="card-text">{{book.author}}</p>
+          <p class="card-text"><small class="text-muted">{{book.year_published}}</small></p>
+          <a href="{% url 'books:delete' %}" class="btn btn-danger">DELETE</a>
+        </div>
+      </div>
+      {%endfor%}
+  </div>
+      
+  {%endblock%}
+
